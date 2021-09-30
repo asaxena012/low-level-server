@@ -28,6 +28,12 @@ app.get('/todo', (req, res) => {
     res.json(db)
 })
 
+app.get('/todo/:id', (req, res) => {
+    const todo = db.find((cur) => cur.id === +req.params.id);
+    console.log("Here: ", todo)
+    res.json(todo);
+})
+
 app.listen(8000, () => {
     console.log(`Server on https://localhost:8000`)
 })
